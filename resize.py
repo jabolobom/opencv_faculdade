@@ -10,6 +10,7 @@ def RunResize(path):
     # Criando Array para as imagens com upscale
     upScaledImages = []
 
+    # Passa por todas as imagens, adicionando no array após o Upscale
     for img in images:
         upScaledImages.append(UpScaleImage(img))
 

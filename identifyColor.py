@@ -24,7 +24,8 @@ def RunDominantColor(path):
             BLUEimgs.append(img)
         else:
             excedenteImgs.append(img)
-        
+    
+    # Organiza todos os arrays junto
     imgsRGB = [REDimgs, GREENimgs, BLUEimgs, excedenteImgs]
     
     return imgsRGB

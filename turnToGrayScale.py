@@ -9,6 +9,7 @@ def RunGrayScale(path):
     # Criando Array para as imagens com upscale
     grayScaleImages = []
 
+    # Passa por todas as imagens, adicionando no array após o GrayScale
     for img in images:
         grayScaleImages.append(GrayScaleImage(img))
 
