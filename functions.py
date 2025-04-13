@@ -37,23 +37,17 @@ def SaveImages(images, path):
     return (f"{len(images)} imagens salvas em '{path}/'")
 
 def ClearFolder(path):
-
-    """
-    Remove todos os arquivos e subpastas de uma pasta.
-    
-    Args:
-        path (str): Caminho da pasta a ser limpa.
-        excluir_pasta (bool): Se True, remove a própria pasta. Se False (padrão), mantém a pasta vazia.
-    """
+    # Testa se a pasta existe
     if not os.path.exists(path):
         return(f"A pasta '{path}' não existe!")
-
+    
+    # Loop para limpar a pasta
     for item in os.listdir(path):
-        item_path = os.path.join(path, item)
+        itemPath = os.path.join(path, item)
         
-        if os.path.isfile(item_path) or os.path.islink(item_path):
-            os.unlink(item_path)  # Remove arquivos e links simbólicos
-        elif os.path.isdir(item_path):
-            shutil.rmtree(item_path)  # Remove subpastas e seu conteúdo
+        if os.path.isfile(itemPath) or os.path.islink(itemPath):
+            os.unlink(itemPath)  # Remove arquivos e links simbólicos
+        elif os.path.isdir(itemPath):
+            shutil.rmtree(itemPath)  # Remove subpastas e seu conteúdo
 
-    return (f"Conteúdo da pasta '{path}' removido (pasta mantida vazia).")
+    return (f"Conteúdo da pasta '{path}' removido")
