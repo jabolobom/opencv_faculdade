@@ -2,15 +2,9 @@ import cv2
 import kagglehub
 from functions import LoadImages
 
-def RunGrayScale():
-    # Baixando o DataSet e colocando o endereço em uma variavel
-    path = kagglehub.dataset_download("bahadrsametarman/balloon-dataset-from-oidv6")
-
-    # Criando o endereço para as imagens
-    imagesPath = path + '\\BalloonDataset\\test\\images'
-
+def RunGrayScale(path):
     # Carregando as imagens
-    images = LoadImages(imagesPath)
+    images = LoadImages(path)
 
     # Criando Array para as imagens com upscale
     grayScaleImages = []

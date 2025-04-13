@@ -1,40 +1,30 @@
 from functions import *
 import cv2
 from sklearn.cluster import KMeans
+from identifyColor import *
+from resize import *
+from turnToGrayScale import *
 
-# K é a quantidade de clusters dominantes que o algortimo procura,
-# ou seja, o 1 cluster de (nesse caso) cor dominante.
-def dominantColor(img, k=1):
-    img = cv2.imread(img) # pode remover isso aqui depois
+# Baixando o DataSet e colocando o endereço em uma variavel
+path = kagglehub.dataset_download("bahadrsametarman/balloon-dataset-from-oidv6")
 
-    image_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB) # converte pra rgb
+# Criando o endereço para as imagens
+imagesPath = path + '\\BalloonDataset\\test\\images'
 
-    pixellist = image_rgb.reshape((-1, 3)) # converte a imagem de um array (width, weight, 3) pra um
-    # array unidimensional, (-1 = pixel individual resultado de w * h, 3 = valores rgb do pixel)
-    # resulta em uma lista bem grande, mas com isso dá pra criar clusters de cores semelhantes
+images = RunDominantColor(imagesPath)
 
-    # cria um gráfico com os valores do pixellist
-    # junta os pontos do gráfico em clusters de cores (valores) semelhantes
-    kmeans = KMeans(n_clusters=k)
-    kmeans.fit(pixellist)
+pathRed = path + '\\Testes\\RGB\\Vermelho'
+pathGreen = path + '\\Testes\\RGB\\Verde'
+pathBlue = path + '\\Testes\\RGB\\Azul'
+pathExcedente = path + '\\Testes\\RGB\\NoDominantValue'
 
-    # busca o centro do maior cluster, a cor média, a cor dominante
-    result = kmeans.cluster_centers_[0]
+print(SaveImages(images[0], pathRed))
+print(SaveImages(images[1], pathGreen))
+print(SaveImages(images[2], pathBlue))
+print(SaveImages(images[3], pathExcedente))
 
-    return result.astype(int) # resulta em 3 valores RGB
+pathUpScale = path + '\\Testes\\UpScale'
+print(SaveImages(RunResize(imagesPath), pathUpScale))
 
-print(dominantColor('bliss.jpg')) # teste
-
-# Se comentar essa parte de baixo a função tá funcionando legal, só precisa integrar com as outras
-# e apresentar o resultado bonitinho
-
-# Caminho do dataset, da pra usar o kagglehub pra carregar...
-dataset_path = None
-
-imgset = LoadImages(dataset_path) # retorna a lista de imagens
-# pra cada x imagem, roda a função de análise nela
-for x in imgset:
-    cordominante = dominantColor(x)
-    print(f"Cor dominante = {cordominante}\n")
-
-
+pathGrayScale =  path + '\\Testes\\GrayScale'
+print(SaveImages(RunGrayScale(imagesPath), pathGrayScale))
