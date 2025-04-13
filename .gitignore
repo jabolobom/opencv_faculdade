@@ -1,5 +1,5 @@
-#Ignorar o cache
+# Ignorar o cache
 /__pycache__
 
-#Ignorar o ambiente virtual
+# Ignorar o ambiente virtual
 /venv

@@ -7,7 +7,7 @@ from functions import LoadImages
 
 def RunResize():
     # Baixando o DataSet e colocando o endereço em uma variavel
-    path = f'{kagglehub.dataset_download("bahadrsametarman/balloon-dataset-from-oidv6")}' 
+    path = kagglehub.dataset_download("bahadrsametarman/balloon-dataset-from-oidv6")
 
     # Criando o endereço para as imagens
     imagesPath = path + '\\BalloonDataset\\test\\images'
