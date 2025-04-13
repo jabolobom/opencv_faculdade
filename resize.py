@@ -3,8 +3,6 @@ import kagglehub
 import cv2
 from functions import LoadImages
 
-
-
 def RunResize():
     # Baixando o DataSet e colocando o endereço em uma variavel
     path = kagglehub.dataset_download("bahadrsametarman/balloon-dataset-from-oidv6")

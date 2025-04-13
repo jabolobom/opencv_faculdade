@@ -3,3 +3,7 @@
 
 # Ignorar o ambiente virtual
 /venv
+
+# Ignorar as pastas do pycharm
+/.idea/
+/env/
