@@ -4,12 +4,16 @@ from sklearn.cluster import KMeans
 from identifyColor import *
 from resize import *
 from turnToGrayScale import *
+import kagglehub
+from borders import *
 
 # Baixando o DataSet e colocando o endereço em uma variavel
 path = kagglehub.dataset_download("bahadrsametarman/balloon-dataset-from-oidv6")
 
 # Criando o endereço para as imagens
 imagesPath = path + '\\BalloonDataset\\test\\images'
+
+
 
 # Rodando a função para dividir as imagens pelo valor dominante da escala RGB
 images = RunDominantColor(imagesPath)
@@ -33,3 +37,7 @@ print(SaveImages(RunResize(imagesPath), pathUpScale))
 # Rodando a função para fazer o GrayScale
 pathGrayScale =  path + '\\Testes\\GrayScale'
 print(SaveImages(RunGrayScale(imagesPath), pathGrayScale))
+
+# Rodando a função para detectar as bordas
+pathEdges = path + '\\Testes\\DetectEdges'
+print(SaveImages(RunDetectEdges(pathGrayScale), pathEdges))
