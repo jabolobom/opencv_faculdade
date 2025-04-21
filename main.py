@@ -16,7 +16,7 @@ imagesPath = path + '\\BalloonDataset\\test\\images'
 
 
 
-""" # Rodando a função para dividir as imagens pelo valor dominante da escala RGB
+# Rodando a função para dividir as imagens pelo valor dominante da escala RGB
 images = RunDominantColor(imagesPath)
 
 # Setando os caminhos para salvar as imagens
@@ -41,7 +41,7 @@ print(SaveImages(RunGrayScale(imagesPath), pathGrayScale))
 
 # Rodando a função para detectar as bordas
 pathEdges = path + '\\Testes\\DetectEdges'
-print(SaveImages(RunDetectEdges(pathGrayScale), pathEdges)) """
+print(SaveImages(RunDetectEdges(pathGrayScale), pathEdges))
 
 # Rodando a função para ajustar brilho/contraste - aumenta a claridade
 pathAdjusted = path + '\\Testes\\BrightnessContrastAdjusted\\Brighter'
