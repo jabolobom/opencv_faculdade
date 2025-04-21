@@ -6,6 +6,7 @@ from resize import *
 from turnToGrayScale import *
 import kagglehub
 from borders import *
+from adjustBrightnessContrast import *
 
 # Baixando o DataSet e colocando o endereço em uma variavel
 path = kagglehub.dataset_download("bahadrsametarman/balloon-dataset-from-oidv6")
@@ -15,7 +16,7 @@ imagesPath = path + '\\BalloonDataset\\test\\images'
 
 
 
-# Rodando a função para dividir as imagens pelo valor dominante da escala RGB
+""" # Rodando a função para dividir as imagens pelo valor dominante da escala RGB
 images = RunDominantColor(imagesPath)
 
 # Setando os caminhos para salvar as imagens
@@ -40,4 +41,12 @@ print(SaveImages(RunGrayScale(imagesPath), pathGrayScale))
 
 # Rodando a função para detectar as bordas
 pathEdges = path + '\\Testes\\DetectEdges'
-print(SaveImages(RunDetectEdges(pathGrayScale), pathEdges))
+print(SaveImages(RunDetectEdges(pathGrayScale), pathEdges)) """
+
+# Rodando a função para ajustar brilho/contraste - aumenta a claridade
+pathAdjusted = path + '\\Testes\\BrightnessContrastAdjusted\\Brighter'
+print(SaveImages(RunAdjustBrightnessContrast(imagesPath, alpha=1.5, beta=20, gamma=1.1),pathAdjusted))
+
+# Rodando a função para ajustar brilho/contraste - diminui a claridade
+pathAdjusted = path + '\\Testes\\BrightnessContrastAdjusted\\Darker'
+print(SaveImages(RunAdjustBrightnessContrast(imagesPath, alpha=0.8, beta=0, gamma=0.3),pathAdjusted))
