@@ -7,15 +7,13 @@ from turnToGrayScale import *
 import kagglehub
 from borders import *
 from thresholding import *
-
+from adjustBrightnessContrast import *
 
 # Baixando o DataSet e colocando o endereço em uma variavel
 path = kagglehub.dataset_download("bahadrsametarman/balloon-dataset-from-oidv6")
 
 # Criando o endereço para as imagens
 imagesPath = path + '\\BalloonDataset\\test\\images'
-
-
 
 # Rodando a função para dividir as imagens pelo valor dominante da escala RGB
 images = RunDominantColor(imagesPath)
@@ -44,10 +42,14 @@ print(SaveImages(RunGrayScale(imagesPath), pathGrayScale))
 pathEdges = path + '\\Testes\\DetectEdges'
 print(SaveImages(RunDetectEdges(pathGrayScale), pathEdges))
 
-# Rodando a função para fazer o GrayScale
-pathGrayScale =  path + '\\Testes\\GrayScale'
-print(SaveImages(RunGrayScale(imagesPath), pathGrayScale))
-
 # Rodando a função para fazer o Thresholding
 pathThresholding = path + '\\Testes\\Thresholding'
 print(SaveImages(RunThresholding(pathGrayScale), pathThresholding)) 
+
+# Rodando a função para ajustar brilho/contraste - aumenta a claridade
+pathAdjusted = path + '\\Testes\\BrightnessContrastAdjusted\\Brighter'
+print(SaveImages(RunAdjustBrightnessContrast(imagesPath, alpha=1.5, beta=20, gamma=1.1),pathAdjusted))
+
+# Rodando a função para ajustar brilho/contraste - diminui a claridade
+pathAdjusted = path + '\\Testes\\BrightnessContrastAdjusted\\Darker'
+print(SaveImages(RunAdjustBrightnessContrast(imagesPath, alpha=0.8, beta=0, gamma=0.3),pathAdjusted))
