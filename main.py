@@ -6,6 +6,8 @@ from resize import *
 from turnToGrayScale import *
 import kagglehub
 from borders import *
+from thresholding import *
+
 
 # Baixando o DataSet e colocando o endereço em uma variavel
 path = kagglehub.dataset_download("bahadrsametarman/balloon-dataset-from-oidv6")
@@ -41,3 +43,11 @@ print(SaveImages(RunGrayScale(imagesPath), pathGrayScale))
 # Rodando a função para detectar as bordas
 pathEdges = path + '\\Testes\\DetectEdges'
 print(SaveImages(RunDetectEdges(pathGrayScale), pathEdges))
+
+# Rodando a função para fazer o GrayScale
+pathGrayScale =  path + '\\Testes\\GrayScale'
+print(SaveImages(RunGrayScale(imagesPath), pathGrayScale))
+
+# Rodando a função para fazer o Thresholding
+pathThresholding = path + '\\Testes\\Thresholding'
+print(SaveImages(RunThresholding(pathGrayScale), pathThresholding)) 
