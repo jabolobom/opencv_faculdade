@@ -8,6 +8,7 @@ import kagglehub
 from borders import *
 from thresholding import *
 from adjustBrightnessContrast import *
+from boudingBoxes import *
 
 # Baixando o DataSet e colocando o endereço em uma variavel
 path = kagglehub.dataset_download("bahadrsametarman/balloon-dataset-from-oidv6")
@@ -53,3 +54,7 @@ print(SaveImages(RunAdjustBrightnessContrast(imagesPath, alpha=1.5, beta=20, gam
 # Rodando a função para ajustar brilho/contraste - diminui a claridade
 pathAdjusted = path + '\\Testes\\BrightnessContrastAdjusted\\Darker'
 print(SaveImages(RunAdjustBrightnessContrast(imagesPath, alpha=0.8, beta=0, gamma=0.3),pathAdjusted))
+
+# Rodando a função para detectar os bounding boxes
+pathBoundingBoxes = path + '\\Testes\\BoundingBoxes'
+print(SaveImages(RunBoundingBoxes(imagesPath), pathBoundingBoxes))
