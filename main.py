@@ -61,7 +61,6 @@ pathBoundingBoxes = path + '\\Testes\\BoundingBoxes'
 print(SaveImages(RunBoundingBoxes(imagesPath), pathBoundingBoxes))
 
 # Rodando a função de segmentação HSV
-pathHSV = path + '\\Testes\\HSV'
 lower, upper = np.array([35,50,50]), np.array([85,255,255])
-first_image = os.path.join(imagesPath, os.listdir(imagesPath)[0])
-HsvSegmentation(first_image, lower, upper, pathHSV)
+pathHsvSegmentation = path + '\\Testes\\HsvSegmentation'
+print(SaveImages(HsvSegmentation(imagesPath, lower, upper), pathHsvSegmentation))
