@@ -9,6 +9,7 @@ from borders import *
 from thresholding import *
 from adjustBrightnessContrast import *
 from boudingBoxes import *
+from HsvSegmentation import *
 
 # Baixando o DataSet e colocando o endereço em uma variavel
 path = kagglehub.dataset_download("bahadrsametarman/balloon-dataset-from-oidv6")
@@ -58,3 +59,9 @@ print(SaveImages(RunAdjustBrightnessContrast(imagesPath, alpha=0.8, beta=0, gamm
 # Rodando a função para detectar os bounding boxes
 pathBoundingBoxes = path + '\\Testes\\BoundingBoxes'
 print(SaveImages(RunBoundingBoxes(imagesPath), pathBoundingBoxes))
+
+# Rodando a função de segmentação HSV
+pathHSV = path + '\\Testes\\HSV'
+lower, upper = np.array([35,50,50]), np.array([85,255,255])
+first_image = os.path.join(imagesPath, os.listdir(imagesPath)[0])
+HsvSegmentation(first_image, lower, upper, pathHSV)
