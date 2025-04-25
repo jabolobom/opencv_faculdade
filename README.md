@@ -8,3 +8,5 @@
   João Pedro Alves
   <br>
   Nicolas Pagliarini
+
+  ## Testado no Linux, funcionamento no windows _incerto_...
