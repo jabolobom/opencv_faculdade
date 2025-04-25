@@ -9,4 +9,5 @@
   <br>
   Nicolas Pagliarini
 
-  ## Testado no Linux, funcionamento no windows _incerto_...
+  ## Branch main = Linux
+  ## Para rodar no windows alterar a branch
