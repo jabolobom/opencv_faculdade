@@ -9,5 +9,4 @@
   <br>
   Nicolas Pagliarini
 
-  ## Branch main = Linux
-  ## Para rodar no windows alterar a branch
+  ## Branch main = Linux, Para rodar no windows alterar a branch
