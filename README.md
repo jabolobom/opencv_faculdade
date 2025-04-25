@@ -5,9 +5,9 @@
   <br>
   Bruno Dias (Segmentação HSV e Separação por cor)
   <br>
-  João Pedro Alves, programador (Border detection e Ajuste de brilho/contraste) 
+  João Pedro Alves, (Border detection e Ajuste de brilho/contraste) 
   <br>
-  Nicolas Pagliarini, programador (Resize (upscale), Thresholding)
+  Nicolas Pagliarini, (Resize (upscale), Thresholding)
 
   ## Mini problema:
   Identificar as cores e separar as imagens identificadas em pastas
